@@ -1,0 +1,37 @@
+html, body {margin: 0; height: 100%; overflow: hidden}
+
+.card-body {
+	background: linear-gradient(-45deg,#06418e,#1572e8)!important;
+	border-radius: 3px;
+}
+
+.card-category {
+	color: white!important;
+}
+
+.team-logo, .team {
+	cursor: pointer;
+	color: white;
+}
+
+.team-logo-analyze {
+	position:absolute;
+	left: 20rem;
+	top: 2rem;
+}
+
+.page-header {
+	margin-top: 3rem;
+}
+
+#predict-ppg {
+	margin-top: 20px;
+}
+
+.white-font {
+	color: white!important;
+}
+
+.result-btn {
+	margin:10px;
+}

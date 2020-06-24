@@ -1,0 +1,122 @@
+<!doctype html>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/atlantis.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/demo.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/fonts.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/index.css') }}">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700,900" media="all">
+<html>
+	<body data-background-color="dark" class="vsc-initialized">
+		<a href="/">
+			<img class="team-logo-analyze" width="150" height="150" src="/static/images/{{ team_name }}.png"/>
+		</a>
+		<form action = "{{ url_for('result') }}" method = "POST" enctype='application/json'>
+			<div class="page-inner">
+				<div class="row">
+					<div class="col-md-4 offset-md-4 text-center">
+						<div class="form-group">
+							<input type="hidden" name="team" value="{{ team_name }}" />
+						</div>
+						<div class="form-group">
+							<label class="form-label d-block white-font">Did the {{ team_name.capitalize() }} Win or Lose?</label>
+							<div class="selectgroup selectgroup-secondary selectgroup-pills">
+								<label class="selectgroup-item">
+									<input type="radio" name="W" value="1" class="selectgroup-input" checked="">
+									<span class="selectgroup-button selectgroup-button-icon">W</span>
+								</label>
+								<label class="selectgroup-item">
+									<input type="radio" name="W" value="0" class="selectgroup-input">
+									<span class="selectgroup-button selectgroup-button-icon">L</span>
+								</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="form-label d-block white-font">Were the {{ team_name.capitalize() }} Home or Away?</label>
+							<div class="selectgroup selectgroup-secondary selectgroup-pills">
+								<label class="selectgroup-item">
+									<input type="radio" name="is_home" value="1" class="selectgroup-input" checked="">
+									<span class="selectgroup-button selectgroup-button-icon">Home</span>
+								</label>
+								<label class="selectgroup-item">
+									<input type="radio" name="is_home" value="0" class="selectgroup-input">
+									<span class="selectgroup-button selectgroup-button-icon">Away</span>
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt--2">
+					<div class="col-md-6 offset-md-3 text-center">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="form-label d-block white-font">{{ team_name.capitalize() }} Total Assists</label>
+										<input id="ast-slider" class="border-0 slider" type="range" min="3" max="53" name="ast" value="28"/>
+										<span class="font-weight-bold text-primary ml-2 mt-1 ast-value-span"></span>
+								</div>
+								<div class="form-group">
+									<label class="form-label d-block white-font">{{ team_name.capitalize() }} Total Rebounds</label>
+										<input id="reb-slider" class="border-0 slider" type="range" min="19" max="109" name="reb" value="46"/>
+										<span class="font-weight-bold text-primary ml-2 mt-1 reb-value-span"></span>
+								</div>
+								<div class="form-group">
+									<label class="form-label d-block white-font">{{ team_name.capitalize() }} FG%</label>
+										<input id="fg-slider" class="border-0 slider" type="range" min="0" max="100" name="fg%" value="41"/>
+										<span class="font-weight-bold text-primary ml-2 mt-1 fg-value-span"></span>
+								</div>
+								<div class="form-group">
+									<label class="form-label d-block white-font">{{ team_name.capitalize() }} FT%</label>
+										<input id="ft-slider" class="border-0 slider" type="range" min="0" max="100" name="ft%" value="75"/>
+										<span class="font-weight-bold text-primary ml-2 mt-1 ft-value-span"></span>
+								</div>
+								<div class="form-group">
+									<label class="form-label d-block white-font">{{ team_name.capitalize() }} 3P%</label>
+										<input id="3p-slider" class="border-0 slider" type="range" min="0" max="100" name="3p%"value="36"/>
+										<span class="font-weight-bold text-primary ml-2 mt-1 3p-value-span"></span>
+								</div>
+								<div>
+									<input id="predict-ppg" class="btn btn-success" type="submit" value="Predict {{ team_name.capitalize() }} PPG" />
+								</div>
+							</div>
+							<div class="col-md-5 text-center">
+								<div class="form-group">
+									<label class="form-label d-block white-font">Opponent Total Points</label>
+										<input id="vs-pts-slider" class="border-0 slider" type="range" min="30" max="186" name="vs_pts" value="105"/>
+										<span class="font-weight-bold text-primary ml-2 mt-1 vs-pts-value-span"></span>
+								</div>
+								<div class="form-group">
+									<label class="form-label d-block white-font">Opponent Total Assists</label>
+										<input id="vs-ast-slider" class="border-0 slider" type="range" min="3" max="53" name="vs_ast" value="28"/>
+										<span class="font-weight-bold text-primary ml-2 mt-1 vs-ast-value-span"></span>
+								</div>
+								<div class="form-group">
+									<label class="form-label d-block white-font">Opponent Total Rebounds</label>
+										<input id="vs-reb-slider" class="border-0 slider" type="range" min="19" max="109" name="vs_reb" value="46"/>
+										<span class="font-weight-bold text-primary ml-2 mt-1 vs-reb-value-span"></span>
+								</div>
+								<div class="form-group">
+									<label class="form-label d-block white-font">Opponent FG%</label>
+										<input id="vs-fg-slider" class="border-0 slider" type="range" min="0" max="100" name="vs_fg%" value="41"/>
+										<span class="font-weight-bold text-primary ml-2 mt-1 vs-fg-value-span"></span>
+								</div>
+								<div class="form-group">
+									<label class="form-label d-block white-font">Opponent FT%</label>
+										<input id="vs-ft-slider" class="border-0 slider" type="range" min="0" max="100" name="vs_ft%" value="70"/>
+										<span class="font-weight-bold text-primary ml-2 mt-1 vs-ft-value-span"></span>
+								</div>
+								<div class="form-group">
+									<label class="form-label d-block white-font">Opponent 3P%</label>
+										<input id="vs-3p-slider" class="border-0 slider" type="range" min="0" max="100" name="vs_3p%" value="32"/>
+										<span class="font-weight-bold text-primary ml-2 mt-1 vs-3p-value-span"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</body>
+</html>
+
+<script src="{{ url_for('static',filename='js/core/jquery.3.2.1.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/core/index.js') }}"></script>

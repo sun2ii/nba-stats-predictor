@@ -1,0 +1,36 @@
+<!doctype html>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/atlantis.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/demo.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/fonts.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/index.css') }}">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700,900" media="all">
+<html>
+	<body data-background-color="dark" class="vsc-initialized">
+		<div class="page-header text-center">
+			<a href="/"><button class="btn btn-info result-btn">Home</button></a>
+			<a href="/analyze/{{result.team}}"><button class="btn btn-danger result-btn">Back</button></a>
+		</div>
+		<div class="page-inner py-2">
+			<div class="text-center">
+				<div>
+					<p class="white-font">
+						<span>
+							When the {{ result.team.capitalize() }} {{ 'win' if result.W == '1' else 'lose' }} {{ 'at home' if result.is_home == '1' else 'on the road' }}, <br/>
+							make {{ result.ast }} assists, grab {{ result.reb }} rebounds, <br/>
+							shoot {{ (result["fg%"] * 100)|int }}%, {{ (result["ft%"] * 100)|int}}% from the free throw line, and {{ (result["3p%"] * 100)|int}}% from three point range, <br/>
+						</span>
+						<span>
+							While their opponent {{ 'lose' if result.W == '1' else 'win' }} {{ 'on the road' if result.is_home == '1' else 'at home' }}, <br/>
+							make {{ result.vs_ast }} assists, grab {{ result.vs_reb }} rebounds, <br/>
+							shoot {{ (result["vs_fg%"] * 100)|int }}%, {{ (result["vs_ft%"] * 100)|int}}% from the free throw line, and {{ (result["vs_3p%"] * 100)|int}}% from three point range, <br/>
+						</span>
+						<br/>
+						they have a predicted <span class="h1 text-success">{{ result.predicted_ppg }}</span> points scored as a team in this game.
+					</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
