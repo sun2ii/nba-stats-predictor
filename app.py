@@ -2,6 +2,7 @@ import json
 import pandas as pd
 import numpy as np
 from flask import Flask, jsonify, request, render_template
+import keras
 
 app = Flask(__name__)
 kings_model = keras.models.load_model("assets/models/sac_ppg_model.h5")
