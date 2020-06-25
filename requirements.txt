@@ -3,4 +3,5 @@ gunicorn==19.9.0
 pandas==0.25.2
 setuptools==41.0.0
 keras
+tensorflow
 
