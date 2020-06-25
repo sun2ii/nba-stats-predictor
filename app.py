@@ -5,7 +5,7 @@ import numpy as np
 from flask import Flask, jsonify, request, render_template
 from tensorflow.compat.v1.keras.models import load_model
 
-model_file_name = os.path.join("assets/models/sac_model")
+model_file_name = os.path.join("assets/test")
 
 app = Flask(__name__)
 kings_model = load_model(model_file_name)
