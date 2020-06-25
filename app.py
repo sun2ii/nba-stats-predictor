@@ -5,9 +5,9 @@ from flask import Flask, jsonify, request, render_template
 import tensorflow as tf
 
 app = Flask(__name__)
-kings_model = tf.compat.v1.saved_model.load_v2("assets/models/sac_ppg_model.h5")
-lakers_model = tf.compat.v1.saved_model.load_v2("assets/models/lal_ppg_model.h5")
-warriors_model = tf.compat.v1.saved_model.load_v2("assets/models/gsw_ppg_model.h5")
+kings_model = tf.compat.v1.saved_model.load_v2("assets/models/sac_model")
+lakers_model = tf.compat.v1.saved_model.load_v2("assets/models/lal_model")
+warriors_model = tf.compat.v1.saved_model.load_v2("assets/models/gsw_model")
 
 @app.route("/")
 def index(): 
