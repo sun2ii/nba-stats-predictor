@@ -6,9 +6,9 @@ import tensorflow as tf
 import keras
 
 app = Flask(__name__)
-kings_model = tf.keras.models.load_model("assets/models/sac_model/")
-lakers_model = tf.keras.models.load_model("assets/models/lal_model/")
-warriors_model = tf.keras.models.load_model("assets/models/gsw_model/")
+kings_model = tf.keras.models.load_model("assets/models/sac_model")
+lakers_model = tf.keras.models.load_model("assets/models/lal_model")
+warriors_model = tf.keras.models.load_model("assets/models/gsw_model")
 
 @app.route("/")
 def index(): 
