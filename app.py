@@ -5,8 +5,6 @@ import numpy as np
 from flask import Flask, jsonify, request, render_template
 from tensorflow import keras
 
-model_file_name = os.path.join("assets/test")
-
 app = Flask(__name__)
 kings_model = keras.models.load_model("assets/sac_ppg_model.h5")
 lakers_model = keras.models.load_model("assets/lal_ppg_model.h5")
