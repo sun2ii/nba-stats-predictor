@@ -1,1 +1,1 @@
-web: gunicorn app:springboard-nba
+web: gunicorn app:app
