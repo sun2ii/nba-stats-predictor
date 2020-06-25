@@ -4,5 +4,5 @@ joblib==0.14.0
 pandas==0.25.2
 tensorflow==2.2.0
 scikit-learn
-setuptools=41.0.0
+setuptools==41.0.0
 
