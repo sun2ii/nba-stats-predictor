@@ -1,14 +1,16 @@
+import os
 import json
 import pandas as pd
 import numpy as np
 from flask import Flask, jsonify, request, render_template
-import tensorflow as tf
-import keras
+from tensorflow.compat.v1.keras.models import load_model
+
+model_file_name = os.path.join("assets/models/sac_model", 'sac_ppg_model.h5')
 
 app = Flask(__name__)
-kings_model = tf.keras.models.load_model("assets/models/sac_model", custom_objects = { "tf": tf })
-lakers_model = tf.keras.models.load_model("assets/models/lal_model", custom_objects = { "tf": tf })
-warriors_model = tf.keras.models.load_model("assets/models/gsw_model",custom_objects = { "tf": tf })
+kings_model = load_model(model_file_name)
+lakers_model = load_model("assets/models/lal_model/lal_ppg_model.h5")
+warriors_model = load_model("assets/models/gsw_model/gsw_ppg_model.h5")
 
 @app.route("/")
 def index(): 
