@@ -2,12 +2,12 @@ import json
 import pandas as pd
 import numpy as np
 from flask import Flask, jsonify, request, render_template
-from keras import models
+import tensorflow as tf
 
 app = Flask(__name__)
-kings_model = models.load_model("assets/models/sac_ppg_model.h5")
-lakers_model = models.load_model("assets/models/lal_ppg_model.h5")
-warriors_model = models.load_model("assets/models/gsw_ppg_model.h5")
+kings_model = tf.saved_models.load("assets/models/sac_ppg_model.h5")
+lakers_model = tf.saved_models.load("assets/models/lal_ppg_model.h5")
+warriors_model = tf.saved_models.load("assets/models/gsw_ppg_model.h5")
 
 @app.route("/")
 def index(): 
