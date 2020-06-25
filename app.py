@@ -3,14 +3,14 @@ import json
 import pandas as pd
 import numpy as np
 from flask import Flask, jsonify, request, render_template
-from tensorflow.compat.v1.keras.models import load_model
+from tensorflow import keras
 
 model_file_name = os.path.join("assets/test")
 
 app = Flask(__name__)
-kings_model = load_model(model_file_name)
-#lakers_model = load_model("assets/models/lal_model/lal_ppg_model.h5")
-#warriors_model = load_model("assets/models/gsw_model/gsw_ppg_model.h5")
+kings_model = keras.models.load_model("assets/sac_ppg_model.h5")
+lakers_model = keras.models.load_model("assets/lal_ppg_model.h5")
+warriors_model = keras.models.load_model("assets/gsw_ppg_model.h5")
 
 @app.route("/")
 def index(): 
@@ -26,10 +26,10 @@ def result():
 		result = request.form.to_dict()
 		if result['team']== 'kings':
 			model = kings_model
-		#elif result['team'] == 'lakers':
-		#	model = lakers_model
-		#elif result['team'] == 'warriors':
-		#	model = warriors_model
+		elif result['team'] == 'lakers':
+			model = lakers_model
+		elif result['team'] == 'warriors':
+			model = warriors_model
 
 		result['fg%'] = int(result['fg%']) / 100
 		result['ft%'] = int(result['ft%']) / 100
