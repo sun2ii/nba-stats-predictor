@@ -1,5 +1,7 @@
 ## Capstone Project - Springboard Machine Learning Bootcamp, 2020
 
+App deployed on [!Heroku](https://springboard-nba.herokuapp.com/)
+
 ### **Predicting an NBA's team Points per Game based on other features**
 
 **Author:** Ben Basuni
