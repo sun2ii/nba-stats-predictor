@@ -8,6 +8,9 @@
 
 ### Project Overview
 
+* **Deployment**: I've built a very simple machine learning model that demonstrates what I've learned in this bootcamp.
+It's a very simple Machine Learning model that 
+
 * **Background**: NBA games produce a wide array of statistical data to be analyzed.   
 We will be using this data to take a statistical viewpoint of an NBA team and how many points a team will make.
 
@@ -24,6 +27,13 @@ Default SciKit-Learn Logistic Regression, RandomForestRegressor, and a Neural Ne
 Several models will then be explored to improve over the benchmark including other ensemble and tree-based models, Support-Vector Machines (SVM), XGBoost.
 
 * **Evaluation Metrics:** R-squared and RMSE will be used for the regression part of the model
+
+### Project Folders
+* assets - neural networking models
+* nba-dataset - csv files that are used 
+* static - Images/CSS/JS files
+* templates - flask html files
+* ipynb - Jupyter notebooks that I worked on in Kaggle to help support my project
 
 ### How to Run
 `pip3 install -r requirements.txt`
