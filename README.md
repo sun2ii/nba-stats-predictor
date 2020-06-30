@@ -25,7 +25,5 @@ Several models will then be explored to improve over the benchmark including oth
 
 * **Evaluation Metrics:** R-squared and RMSE will be used for the regression part of the model
 
-### Requirements: Software and Libraries used
-
 ### How to Run
 `pip3 install -r requirements.txt`
