@@ -9,7 +9,7 @@
 ### Project Overview
 
 * **Background**: NBA games produce a wide array of statistical data to be analyzed.   
-We will be using this data to take a statistical viewpoint of an NBA team and how many points the team will make.
+We will be using this data to take a statistical viewpoint of an NBA team and how many points a team will make.
 
 * **Datasets & Input**:
 https://www.kaggle.com/drgilermo/nba-players-stats
